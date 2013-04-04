@@ -26,7 +26,7 @@ public:
     void update(sf::Event event, sf::Time elapsedTime);
     void liveUpdate(sf::Time elapsedTime);
     
-    float getSpeed();
+    real getSpeed();
     Vector getPosition();
     
     void setSpeed(float v);
@@ -34,7 +34,7 @@ public:
     
 private:
     Vector position;
-    float speed;
+    real speed;
     sf::RectangleShape rectangle;
     
     

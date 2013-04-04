@@ -13,6 +13,7 @@
 #include <SFML/Graphics.hpp>
 #include "GameScreen.h"
 #include "Player.h"
+#include "Floor.h"
 
 class Level1Screen : public GameScreen {
 public:
@@ -27,6 +28,7 @@ public:
     
 private:
     Player *player;
+    Floor *floor;
 };
 
 #endif /* defined(__PlatformGame__Level1Screen__) */

@@ -33,8 +33,7 @@ public:
     
     
 private:
-    real x;
-    real y;
+    real x, y;
 };
 
 #endif /* defined(__PlatformGame__Vector__) */

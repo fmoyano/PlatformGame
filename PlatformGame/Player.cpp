@@ -14,10 +14,12 @@ Player::~Player() {}
 
 void Player::initialize() {
     position.setX(0);
-    position.setY(0);
-    speed = 100;
+    position.setY(560);
+    speed = 300;
     rectangle.setPosition(position.getX(), position.getY());
+    rectangle.setOrigin(0, 0);
     rectangle.setSize(sf::Vector2f(20, 20));
+    rectangle.setFillColor(sf::Color::White);
 }
 
 void Player::draw(sf::RenderWindow &window) {
@@ -26,22 +28,29 @@ void Player::draw(sf::RenderWindow &window) {
 
 //Update all the parameters
 void Player::update(sf::Event event, sf::Time elapsedTime) {
-
+    
 }
 
 void Player::liveUpdate(sf::Time elapsedTime) {
     float x = position.getX();
-    float y = position.getY();
     
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+        //position.setX(x += speed*elapsedTime.asSeconds());
         x += speed * elapsedTime.asSeconds();
+    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+        //position.setX(x -= speed * elapsedTime.asSeconds());
+        x -= speed * elapsedTime.asSeconds();
+        
     }
     
     position.setX(x);
     rectangle.setPosition(position.getX(), position.getY());
 }
 
-float getSpeed();
+real Player::getSpeed() {
+    return speed;
+}
+
 Vector Player::getPosition() {
     return position;
 }
