@@ -37,10 +37,10 @@ void SplashScreen::inputUpdate(sf::Event event, sf::Time elapsedTime) {
 
 void SplashScreen::liveInputUpdate(sf::Time elapsedTime) {
     
-    if (liveInput.keyDown(keys)) {
-        //Do something useful
-        std::cout << "hola ";
-    }
+}
+
+void SplashScreen::update(sf::Time elapsedTime) {
+    
 }
 
 void SplashScreen::draw(sf::RenderWindow &window) {

@@ -23,8 +23,7 @@ public:
     bool keyPressed(std::vector<sf::Keyboard::Key> keys);
     bool keyReleased(sf::Keyboard::Key key);
     bool keyReleased(std::vector<sf::Keyboard::Key> keys);
-    bool keyDown(sf::Keyboard::Key key);
-    bool keyDown(std::vector<sf::Keyboard::Key> keys);
+   
 private:
     sf::Event event;
     

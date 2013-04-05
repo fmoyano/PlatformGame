@@ -12,6 +12,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
+
 class Floor {
   
 public:

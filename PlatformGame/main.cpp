@@ -68,7 +68,7 @@ int main(int, char const**)
         p_SM.liveInputUpdate(elapsedTime);
         
         //Now we need to update the rest of the screen
-        //p_SM.update(elapasedTime);
+        p_SM.update(elapsedTime);
         
         /*FADE TESTING: due to the font, no black fade is detected, therefore is white
          fade.setFillColor(sf::Color(255, 255, 255, 255 * p_SM.getAlpha()));

@@ -28,6 +28,10 @@ void GameScreen::liveInputUpdate(sf::Time elapsedTime) {
     
 }
 
+void GameScreen::update(sf::Time elapsedTime) {
+    
+}
+
 void GameScreen::draw(sf::RenderWindow &window) {
     
 }

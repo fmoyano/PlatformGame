@@ -12,6 +12,11 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Vector.h"
+#include "InputManager.h"
+#include "core.h"
+
+#define Player_Velocity_X 300
+#define Jump_Acceleration 500
 
 class Player {
   
@@ -23,18 +28,21 @@ public:
     void draw(sf::RenderWindow &window);
     
     //Update all the parameters
-    void update(sf::Event event, sf::Time elapsedTime);
+    void update(InputManager &input, sf::Time elapsedTime);
     void liveUpdate(sf::Time elapsedTime);
+    void integrate(sf::Time elapsedTime);
     
-    real getSpeed();
     Vector getPosition();
+    Vector getVelocity();
+    Vector getAcceleration();
     
-    void setSpeed(float v);
     void setPosition(Vector &position);
+    void setVelocity(Vector &velocity);
+    void setAcceleration(Vector &acceleration);
+    
     
 private:
-    Vector position;
-    real speed;
+    Vector position, velocity, acceleration;
     sf::RectangleShape rectangle;
     
     

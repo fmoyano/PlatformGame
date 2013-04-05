@@ -48,15 +48,33 @@ void Vector::normalize() {
     this->y /= l;
 }
 
-void Vector::byScalar(real v) {
-    this->x *= v;
-    this->y *= v;
+Vector Vector::byScalar(real v) {
+    return Vector(x*v, y*v);
     
 }
 
-void Vector::operator*(real v) {
+/*void Vector::operator*(real v) {
     this->byScalar(v);
+}*/
+
+Vector Vector::operator*(real v) {
+    return Vector(x*v, y*v);
 }
+
+Vector Vector::operator+(Vector &v) {
+    return Vector(x+v.getX(), y+v.getY());
+}
+
+void Vector::addVector(Vector &v) {
+    x += v.getX();
+    y += v.getY();
+}
+
+void Vector::addScaledVector(Vector &v, real z) {
+    x += v.getX() * z;
+    y += v.getY() * z;
+}
+
 
 real Vector::scalarProduct(Vector &v) {
     return (x*v.getX() + y*v.getY());

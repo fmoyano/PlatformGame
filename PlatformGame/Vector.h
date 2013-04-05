@@ -24,10 +24,14 @@ public:
     void setY(real y);
     real length();
     void normalize();
-    void byScalar(real x);
-    void operator*(real x);
+    Vector byScalar(real x);
+    //void operator*(real x);
+    Vector operator*(real x);
     real scalarProduct(Vector &v);
     real operator*(Vector &v);
+    Vector operator+(Vector &v);
+    void addVector(Vector &v);
+    void addScaledVector(Vector &v, real x);
     real angleWithVector(Vector &v);
     real angleWithVectorDegress(Vector &v);
     

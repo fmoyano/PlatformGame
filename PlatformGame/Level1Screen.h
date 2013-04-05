@@ -24,6 +24,7 @@ public:
     void unloadContent();
     void inputUpdate(sf::Event event, sf::Time elapsedTime);
     void liveInputUpdate(sf::Time elapsedTime);
+    void update(sf::Time elapsedTime);
     void draw(sf::RenderWindow &window);
     
 private:

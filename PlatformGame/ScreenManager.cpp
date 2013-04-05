@@ -79,6 +79,10 @@ void ScreenManager::liveInputUpdate(sf::Time elapsedTime) {
     currentScreen -> liveInputUpdate(elapsedTime);
 }
 
+void ScreenManager::update(sf::Time elapsedTime) {
+    currentScreen -> update(elapsedTime);
+}
+
 void ScreenManager::draw(sf::RenderWindow &window) {
     currentScreen->draw(window);
 }

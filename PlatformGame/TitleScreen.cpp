@@ -39,11 +39,11 @@ void TitleScreen::inputUpdate(sf::Event event, sf::Time elapsedTime) {
 }
 
 void TitleScreen::liveInputUpdate(sf::Time elapsedTime) {
+  
+}
+
+void TitleScreen::update(sf::Time elapsedTime) {
     
-    if (liveInput.keyDown(keys)) {
-        //Do something useful
-        std::cout << "adios ";
-    }
 }
 
 void TitleScreen::draw(sf::RenderWindow &window) {

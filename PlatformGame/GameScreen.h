@@ -12,7 +12,6 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "InputManager.h"
-#include "LiveInputManager.h"
 
 class GameScreen {
 public:
@@ -23,10 +22,10 @@ public:
     virtual void unloadContent();
     virtual void inputUpdate(sf::Event event, sf::Time elapsedTime);
     virtual void liveInputUpdate(sf::Time elapsedTime);
+    virtual void update(sf::Time elapsedTime);
     virtual void draw(sf::RenderWindow &window);
 protected:
     InputManager input;
-    LiveInputManager liveInput;
     std::vector<sf::Keyboard::Key> keys;
 
 };
