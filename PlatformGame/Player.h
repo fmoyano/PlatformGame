@@ -14,37 +14,54 @@
 #include "Vector.h"
 #include "InputManager.h"
 #include "core.h"
+#include "Entity.h"
+#include "MovablePlatform.h"
 
-#define Player_Velocity_X 300
-#define Jump_Acceleration 500
+const real PLAYER_VELOCITY_X = 70;
+const real MAX_VELOCITY_X = PLAYER_VELOCITY_X + 700;
+const real JUMP_IMPULSE = 400;
+const real ACCELERATION_X = 400;
 
-class Player {
+/*
+#define Player_Velocity_X 70
+#define Max_Velocity_X (Player_Velocity_X + 700)
+#define Jump_Impulse 400
+#define Acceleration_X 400
+*/
+
+class Player : public Entity {
   
 public:
     Player();
+    Player(const Vector &pos, const Vector &size);
+    Player(real px, real py, real sx, real sy);
     ~Player();
     
     void initialize();
     void draw(sf::RenderWindow &window);
     
     //Update all the parameters
-    void update(InputManager &input, sf::Time elapsedTime);
-    void liveUpdate(sf::Time elapsedTime);
-    void integrate(sf::Time elapsedTime);
-    
-    Vector getPosition();
-    Vector getVelocity();
-    Vector getAcceleration();
-    
-    void setPosition(Vector &position);
-    void setVelocity(Vector &velocity);
-    void setAcceleration(Vector &acceleration);
-    
+    void inputUpdate(const InputManager &input, sf::Time elapsedTime);
+    void update(sf::Time elapsedTime);
+    void onCollision(Entity &e); //Don't want to miss the chance with 'const' of modifying e
+
+    void printDebug() const;
     
 private:
-    Vector position, velocity, acceleration;
+    //Vector position, velocity, acceleration from Entity;
     sf::RectangleShape rectangle;
+    sf::Sprite sprite;
+    sf::Texture texture;
+    bool inAir;
+    bool isJumping, isWalking, isRunning;
+    bool onStair, onFloor, goingDown, goingUp;
+    bool isFalling, isAccelerating, onMovingPlatform;
     
+    //For example, important if it's riding on a moving platform
+    Vector initialVelocity;
+    
+    //
+    MovablePlatform *movPlatform;
     
 };
 

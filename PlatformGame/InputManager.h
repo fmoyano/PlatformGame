@@ -18,11 +18,11 @@ public:
     InputManager();
     ~InputManager();
     
-    void update(sf::Event event);
-    bool keyPressed(sf::Keyboard::Key key);
-    bool keyPressed(std::vector<sf::Keyboard::Key> keys);
-    bool keyReleased(sf::Keyboard::Key key);
-    bool keyReleased(std::vector<sf::Keyboard::Key> keys);
+    void update(const sf::Event &event);
+    bool keyPressed(const sf::Keyboard::Key &key) const;
+    bool keyPressed(const std::vector<sf::Keyboard::Key> &keys) const;
+    bool keyReleased(const sf::Keyboard::Key &key) const;
+    bool keyReleased(const std::vector<sf::Keyboard::Key> &keys) const;
    
 private:
     sf::Event event;

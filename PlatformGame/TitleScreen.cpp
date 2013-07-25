@@ -29,7 +29,7 @@ void TitleScreen::unloadContent() {
     
 }
 
-void TitleScreen::inputUpdate(sf::Event event, sf::Time elapsedTime) {
+void TitleScreen::inputUpdate(const sf::Event &event, sf::Time elapsedTime) {
     input.update(event);
     
     if(input.keyPressed(keys)) {
@@ -38,9 +38,9 @@ void TitleScreen::inputUpdate(sf::Event event, sf::Time elapsedTime) {
     }   
 }
 
-void TitleScreen::liveInputUpdate(sf::Time elapsedTime) {
+/*void TitleScreen::liveInputUpdate(sf::Time elapsedTime) {
   
-}
+}*/
 
 void TitleScreen::update(sf::Time elapsedTime) {
     

@@ -21,10 +21,11 @@
 
 #include "Vector.h"
 
+
 int main(int, char const**)
 {
 
-    sf::RenderWindow window(sf::VideoMode(ScreenWidth, ScreenHeight, 32), "Platformer");
+    sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Platformer");
     window.setKeyRepeatEnabled(false);
     
     
@@ -46,7 +47,14 @@ int main(int, char const**)
     while(window.isOpen()) {
         
         sf::Time elapsedTime = clock.restart();
-
+        
+        //Calculate FPS
+        //std::cout << "FPS: " << 1/elapsedTime.asSeconds();
+        //Clear the terminal
+        /*for(int i = 0; i < 5; ++i) {
+            printf("\n");
+        }*/
+        
         while(window.pollEvent(event)) {
             switch (event.type) {
                 case sf::Event::Closed:
@@ -65,9 +73,6 @@ int main(int, char const**)
         }
         
         //We need two updates: one for events update, another for live keyboard update
-        p_SM.liveInputUpdate(elapsedTime);
-        
-        //Now we need to update the rest of the screen
         p_SM.update(elapsedTime);
         
         /*FADE TESTING: due to the font, no black fade is detected, therefore is white
@@ -75,9 +80,10 @@ int main(int, char const**)
         std::cout << p_SM.getAlpha() << std::endl;
         window.draw(fade);*/
         
+        window.clear();
         p_SM.draw(window);
         window.display();
-        window.clear();
+        
     }
     
     return 0;

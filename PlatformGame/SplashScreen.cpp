@@ -27,7 +27,7 @@ void SplashScreen::unloadContent() {
     GameScreen::unloadContent();
 }
 
-void SplashScreen::inputUpdate(sf::Event event, sf::Time elapsedTime) {
+void SplashScreen::inputUpdate(const sf::Event &event, sf::Time elapsedTime) {
     input.update(event);
     if(input.keyPressed(keys)) {
         ScreenManager& p_SM = ScreenManager::getInstance();
@@ -35,9 +35,6 @@ void SplashScreen::inputUpdate(sf::Event event, sf::Time elapsedTime) {
     }
 }
 
-void SplashScreen::liveInputUpdate(sf::Time elapsedTime) {
-    
-}
 
 void SplashScreen::update(sf::Time elapsedTime) {
     

@@ -21,11 +21,11 @@ Vector::Vector(real u, real v) {
 
 Vector::~Vector() {}
 
-real Vector::getX() {
+const real Vector::getX() const {
     return x;
 }
 
-real Vector::getY() {
+const real Vector::getY() const {
     return y;
 }
 
@@ -37,7 +37,12 @@ void Vector::setY(real y) {
     this->y = y;
 }
 
-real Vector::length() {
+void Vector::setXY(real x, real y) {
+    this-> x = x;
+    this-> y = y;
+}
+
+real Vector::length() const {
     
     return sqrt(this->x * this->x + this->y * this->y);
 }
@@ -48,46 +53,63 @@ void Vector::normalize() {
     this->y /= l;
 }
 
-Vector Vector::byScalar(real v) {
+Vector Vector::byScalar(real v) const {
     return Vector(x*v, y*v);
     
 }
 
-/*void Vector::operator*(real v) {
-    this->byScalar(v);
-}*/
-
-Vector Vector::operator*(real v) {
-    return Vector(x*v, y*v);
-}
-
-Vector Vector::operator+(Vector &v) {
-    return Vector(x+v.getX(), y+v.getY());
-}
-
-void Vector::addVector(Vector &v) {
+void Vector::addVector(const Vector &v) {
     x += v.getX();
     y += v.getY();
 }
 
-void Vector::addScaledVector(Vector &v, real z) {
+void Vector::addVector(real x, real y) {
+    this -> x += x;
+    this -> y += y;
+}
+
+void Vector::addScaledVector(const Vector &v, real z) {
     x += v.getX() * z;
     y += v.getY() * z;
 }
 
-
-real Vector::scalarProduct(Vector &v) {
+real Vector::scalarProduct(const Vector &v) const {
     return (x*v.getX() + y*v.getY());
 }
 
-real Vector::operator*(Vector &v) {
-    return scalarProduct(v);
-}
-
-real Vector::angleWithVector(Vector &v) {
+real Vector::angleWithVector(const Vector &v) const {
     return acos(this->scalarProduct(v) / (this->length() * v.length()));
 }
 
-real Vector::angleWithVectorDegress(Vector &v) {
+real Vector::angleWithVectorDegress(const Vector &v) const {
     return angleWithVector(v)*180/PI;
 }
+
+//----------------------------------------------------
+// OPERATORS OVERLOADING
+//----------------------------------------------------
+Vector& Vector::operator+=(const Vector &v) {
+    this->x += v.getX();
+    this->y += v.getY();
+    return *this;
+}
+
+Vector& Vector::operator-=(const Vector &v) {
+    this -> x -= v.getX();
+    this -> y -= v.getY();
+    return *this;
+}
+
+
+Vector& Vector::operator*=(real s) {
+    this->x *= s;
+    this->y *= s;
+    return *this;
+}
+
+real Vector::operator*=(const Vector &v) {
+    return this->x * v.getX() +
+        this->y * v.getY();
+}
+
+

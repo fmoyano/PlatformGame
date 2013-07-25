@@ -6,23 +6,26 @@
 //  Copyright (c) 2013 fran. All rights reserved.
 //
 
-#ifndef __PlatformGame__Floor__
-#define __PlatformGame__Floor__
+#ifndef __PlatformGame__Platform__
+#define __PlatformGame__Platform__
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
+#include "Entity.h"
 
-class Floor {
+class Platform : public Entity {
   
 public:
-    Floor();
-    ~Floor();
+    Platform();
+    Platform(real posX, real posY, real sizeX, real sizeY);
+    ~Platform();
 
     void initialize();
     void draw(sf::RenderWindow &window);
     
-private:
+    
+protected:
     sf::RectangleShape floor;
 };
 #endif /* defined(__PlatformGame__Floor__) */

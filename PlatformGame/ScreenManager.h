@@ -15,10 +15,11 @@
 #include "SplashScreen.h"
 #include "TitleScreen.h"
 #include "FileManager.h"
+
 //#include "FadeTransition.h"
 
-#define ScreenWidth 800
-#define ScreenHeight 600
+const int SCREEN_WIDTH = 1280;
+const int SCREEN_HEIGHT = 800;
 
 //ScreenManager manages the different screens in the game
 //ScreenManager is a singleton class. This is why the constructor(s) is private
@@ -35,7 +36,7 @@ public:
     void initialize();
     void loadContent();
     void unloadContent();
-    void inputUpdate(sf::Event event, sf::Time elapsedTime);
+    void inputUpdate(const sf::Event &event, sf::Time elapsedTime);
     void liveInputUpdate(sf::Time elapsedTime);
     void update(sf::Time elapsedTime);
     void draw(sf::RenderWindow &window);

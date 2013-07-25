@@ -8,24 +8,35 @@
 
 #include "GameScreen.h"
 
-GameScreen::GameScreen() {}
+GameScreen::GameScreen() {
+    numLayers = 0;
+}
 
-GameScreen::~GameScreen() {}
-
-void GameScreen::loadContent() {
-    
+GameScreen::~GameScreen() {
+     
 }
 
 void GameScreen::unloadContent() {
     keys.clear();
 }
 
-void GameScreen::inputUpdate(sf::Event event, sf::Time elapsedTime) {
-    
+void GameScreen::addLayer(ScreenLayer *layer) {
+    layers[numLayers] = layer;
+    numLayers++;
 }
 
-void GameScreen::liveInputUpdate(sf::Time elapsedTime) {
-    
+int GameScreen::getNumLayers() const {
+    return numLayers;
+}
+
+
+//To be implemented by concrete screens
+void GameScreen::loadContent() {
+   
+}
+
+void GameScreen::inputUpdate(const sf::Event &event, sf::Time elapsedTime) {
+   
 }
 
 void GameScreen::update(sf::Time elapsedTime) {

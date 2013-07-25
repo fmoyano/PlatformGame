@@ -9,9 +9,12 @@
 #ifndef PlatformGame_core_h
 #define PlatformGame_core_h
 
-#define PI 3.14159265359
-#define Gravity 700
 typedef float real;
+
+const real PI = 3.14159265359;
+const bool _DEBUG = 1;
+const real EPSILON = 0.01;
+const real GRAVITY = 900;
 
 
 

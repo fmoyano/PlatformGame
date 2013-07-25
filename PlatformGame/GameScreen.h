@@ -12,7 +12,10 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "InputManager.h"
+#include "CollisionDetector.h"
+#include "ScreenLayer.h"
 
+const int MAX_LAYERS = 3;
 class GameScreen {
 public:
     GameScreen();
@@ -20,14 +23,22 @@ public:
     
     virtual void loadContent();
     virtual void unloadContent();
-    virtual void inputUpdate(sf::Event event, sf::Time elapsedTime);
-    virtual void liveInputUpdate(sf::Time elapsedTime);
+    virtual void inputUpdate(const sf::Event &event, sf::Time elapsedTime);
     virtual void update(sf::Time elapsedTime);
     virtual void draw(sf::RenderWindow &window);
+    
+    void addLayer(ScreenLayer *layer);
+    int getNumLayers() const;
+  
+    
 protected:
     InputManager input;
     std::vector<sf::Keyboard::Key> keys;
-
+    CollisionDetector *cd;
+    //sf::View view;
+    //std::vector<Entity *> gameObjects;
+    ScreenLayer *layers[MAX_LAYERS];
+    int numLayers;
 };
 
 #endif /* defined(__PlatformGame__GameScreen__) */

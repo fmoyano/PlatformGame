@@ -67,7 +67,7 @@ void ScreenManager::loadContent() {
 }
 
 
-void ScreenManager::inputUpdate(sf::Event event, sf::Time elapsedTime) {
+void ScreenManager::inputUpdate(const sf::Event &event, sf::Time elapsedTime) {
     /*if (!transi) {
         currentScreen->update(event);
     }
@@ -75,9 +75,9 @@ void ScreenManager::inputUpdate(sf::Event event, sf::Time elapsedTime) {
     currentScreen -> inputUpdate(event, elapsedTime);
 }
 
-void ScreenManager::liveInputUpdate(sf::Time elapsedTime) {
+/*void ScreenManager::liveInputUpdate(sf::Time elapsedTime) {
     currentScreen -> liveInputUpdate(elapsedTime);
-}
+}*/
 
 void ScreenManager::update(sf::Time elapsedTime) {
     currentScreen -> update(elapsedTime);
